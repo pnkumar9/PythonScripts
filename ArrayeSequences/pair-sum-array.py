@@ -28,7 +28,7 @@ def pair_sum(arr,k):
         target = k-num
         print (f" target is {target}")
         
-        # Add it to set if target hasn't been seen
+        # Add it to set if target hasn't been seenmap
         if target not in seen:
             seen.add(num)
             print(f"not seen {target} in seen set so adding {num}")
@@ -43,6 +43,27 @@ def pair_sum(arr,k):
     return len(output)
     # Nice one-liner for printing output
     #return '\n'.join(map(str,list(output)))
+
+'''
+from Algoexpert: return just one pair
+uses dict or hash instead of set
+'''
+
+def twoNumberSum(array, targetSum):
+    
+	#create empty dict
+	nums = {}
+	
+	for num in array:
+		potentialMatch = targetSum - num
+		if potentialMatch in nums:
+			return [potentialMatch,num]
+		else:
+			nums[num] = True
+			
+	return []
+
+
 
 #pair_sum([1,2,3,1],3)    
 pair_sum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1],10)
