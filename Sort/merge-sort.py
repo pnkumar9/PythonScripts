@@ -1,17 +1,25 @@
 #!/usr/bin/env python3.6
 
+callnum = 0
+
+
 # Python program for implementation of MergeSort 
-def mergeSort(arr): 
+def mergeSort1(arr): 
+	global callnum
+	callnum += 1
+	print(f"call number {callnum} and input array is {arr}")
 	if len(arr) >1: 
 		mid = len(arr)//2 # Finding the mid of the array 
 		L = arr[:mid] # Dividing the array elements 
 		R = arr[mid:] # into 2 halves 
 
-		mergeSort(L) # Sorting the first half 
-		mergeSort(R) # Sorting the second half 
+		print("calling L")
+		mergeSort1(L) # Sorting the first half 
+		print("calling R")
+		mergeSort1(R) # Sorting the second half 
 
 		i = j = k = 0
-		
+		print(f" Sort started L: {L} R: {R}")
 		# Copy data to temp arrays L[] and R[] 
 		while i < len(L) and j < len(R): 
 			if L[i] < R[j]: 
@@ -32,6 +40,7 @@ def mergeSort(arr):
 			arr[k] = R[j] 
 			j+= 1
 			k+= 1
+		print(f" Sort Ended Result: {arr}")
 
 # Code to print the list 
 def printList(arr): 
@@ -44,8 +53,9 @@ if __name__ == '__main__':
 	arr = [12, 11, 13, 5, 6, 7] 
 	print ("Given array is", end ="\n") 
 	printList(arr) 
-	mergeSort(arr) 
+	mergeSort1(arr) 
 	print("Sorted array is: ", end ="\n") 
 	printList(arr) 
 
 # This code is contributed by Mayank Khanna 
+

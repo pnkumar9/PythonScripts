@@ -36,4 +36,4 @@ def merge_two_sorted_arrays(a,b):
 
     print(result)
 
-merge_two_sorted_arrays([1,3,5,7,9], [2,4,6,8,10,12,14,16])
+merge_two_sorted_arrays([1,3,5,7,9], [2,3,4,6,8,10,12,14,16])

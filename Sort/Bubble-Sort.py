@@ -26,11 +26,12 @@ def bubble_sort(arr):
   for i in range(len(arr)):
     for j in range(len(arr)-1):
       if arr[j] > arr[j+1]:
-        temp = arr[j]
-        arr[j] = arr[j+1]
-        arr[j+1] = temp
+            swap(j, j+1, arr)
 
   print(arr)        
+
+def swap(i,j,arr):
+      arr[i], arr[j] = arr[j], arr[i]
 
 bubble_sort([2,7,5,1,9])
 bubble_sort([7,4,3,2,0])
