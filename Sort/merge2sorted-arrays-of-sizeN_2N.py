@@ -32,7 +32,7 @@ We cannot start the merge from the beginning of the two arrays, as this will req
 
 '''
 
-def mergeSortedArraysSizeNand2N(arr1, arr2):
+def mergeSortedArraysSizeNand2N_V1(arr1, arr2):
 
     i = len(arr1) - 1
     j = (len(arr2) // 2) - 1
@@ -60,5 +60,24 @@ def mergeSortedArraysSizeNand2N(arr1, arr2):
         k -= 1    
     print(arr2)
 
+def mergeSortedArraysSizeNand2N_V2(arr1, arr2):
+    
+    i = len(arr1) - 1
+    j = (len(arr2) // 2) - 1
+    k = len(arr2) - 1
 
-mergeSortedArraysSizeNand2N([1,3,5], [2,4,6,0,0,0])    
+    print(f"{i} {j} {k}")
+    while  i >= 0:
+        if  (j >= 0 ) and (arr2[j] > arr1[i]):            
+            arr2[k] = arr2[j]
+            j -= 1
+            k -= 1            
+        else:
+            arr2[k] = arr1[i]
+            i -= 1
+            k -= 1
+
+    print(arr2)
+
+mergeSortedArraysSizeNand2N_V1([1,3,5], [2,4,6,0,0,0])    
+mergeSortedArraysSizeNand2N_V2([1,3,5], [2,4,6,0,0,0])    

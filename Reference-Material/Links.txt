@@ -1,0 +1,22 @@
+
+https://ttzztt.gitbooks.io/lc/design-tic-tac-toe.html
+
+different cases of sorting list of tuples:
+
+https://algocoding.wordpress.com/2015/04/14/how-to-sort-a-list-of-tuples-in-python-3-4/
+
+ python porblems:
+https://www.youtube.com/channel/UCEJ1lT9sc9zw-tRean6z68Q  Nian Li
+
+Alien dictionary https://www.youtube.com/watch?v=_TRTRpBwVW8
+
+TBD:
+
+Count number of inversions
+Count Smaller Numbers
+Kth Largest Element in Unsorted Array
+Kth Closest Points to Origin
+Top K Frequent Elements
+Kth Largest Element in a Stream
+Find Median Value
+Merge k Sorted List
