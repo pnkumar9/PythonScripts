@@ -54,8 +54,8 @@ def mergeSort_with_aux_array(arr):
     else:
         a = arr[:len(arr)/2]
         b = arr[len(arr)/2:]
-        a = mergeSort(a)
-        b = mergeSort(b)
+        a = mergeSort_with_aux_array(a)
+        b = mergeSort_with_aux_array(b)
         c = []
         i = 0
         j = 0
@@ -79,5 +79,4 @@ if __name__ == '__main__':
 	print("Sorted array is: ", end ="\n") 
 	printList(arr) 
 
-# This code is contributed by Mayank Khanna 
 
