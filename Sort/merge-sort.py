@@ -52,8 +52,8 @@ def mergeSort_with_aux_array(arr):
     if len(arr) == 1:
         return arr
     else:
-        a = arr[:len(arr)/2]
-        b = arr[len(arr)/2:]
+        a = arr[:len(arr)//2]
+        b = arr[len(arr)//2:]
         a = mergeSort_with_aux_array(a)
         b = mergeSort_with_aux_array(b)
         c = []
@@ -75,8 +75,9 @@ if __name__ == '__main__':
 	arr = [12, 11, 13, 5, 6, 7] 
 	print ("Given array is", end ="\n") 
 	printList(arr) 
-	mergeSort1(arr) 
+	#mergeSort1(arr) 
+	res = mergeSort_with_aux_array(arr)
 	print("Sorted array is: ", end ="\n") 
-	printList(arr) 
+	printList(res) 
 
 
