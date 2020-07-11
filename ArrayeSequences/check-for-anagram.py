@@ -11,9 +11,9 @@ def check_for_anagram(str1, str2):
     if len(str1) != len(str2):
         return False
     return (sorted(str1) == sorted(str2))
-print(check_for_anagram('god','dog'))
-print(check_for_anagram('clint eastwood','old west action'))
-print(check_for_anagram('clinton eastwood','old west action'))
+#print(check_for_anagram('god','dog'))
+#print(check_for_anagram('clint eastwood','old west action'))
+#print(check_for_anagram('clinton eastwood','old west action'))
 
 '''
 check the frequency of each letter in both the strings
@@ -46,4 +46,19 @@ def check_for_anagram_method2(str1, str2):
                 return False
 
         return True
-print(check_for_anagram_method2('clint eastwood', 'old west action'))
+#print(check_for_anagram_method2('clint eastwood', 'old west action'))
+
+from collections import Counter  
+def check_for_anagram_using_Counter(s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        s = s.replace(" ","").lower()
+        t = t.replace(" ","").lower()
+        print(f"s: {s} t: {t}")        
+        return Counter(s) == Counter(t)
+
+print(check_for_anagram_using_Counter('clint eastwood', 'old west action'))
+print(check_for_anagram_using_Counter('clint eastwood', 'old west action2'))         
