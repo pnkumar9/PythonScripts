@@ -39,5 +39,33 @@ def twoNumberSum(array, targetSum):
 			
 	return []
 
+'''
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example:
+
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+'''
+import collections
+def twoSum(nums, target):
+	
+	num_dict = collections.defaultdict()
+
+	for index, num in enumerate(nums):
+		
+		pMatch = target - num
+		
+		if pMatch not in num_dict:
+			num_dict[num] = index
+		else:
+			return [num_dict[pMatch], index]
+			
+	return []    
 
 print(twoNumberSum([1,2,3,1],3))
+print(twoSum([1,2,3,1],3))
