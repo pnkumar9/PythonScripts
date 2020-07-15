@@ -21,21 +21,22 @@ https://leetcode.com/problems/letter-case-permutation/discuss/379928/Python-clea
 
 def letterCasePermutations(s):
     result = []
-    helper(s, 0, "", result)
+    helper(s, 0, [], result)
     return result
 
 
 def helper(input, i,  slate, result):
 
-    if i >= len(input):
-        result.append(slate)
+    #base case, we reached end leaf, no more elements to fill in
+    if i == len(input):
+        result.append("".join(slate))
         #print(result)
     else:
         if input[i].isdigit():
-            helper(input, i+1, slate + input[i], result)
+            helper(input, i+1, slate + [input[i]], result)
         else:
-            helper(input, i+1, slate + input[i].lower(), result)
-            helper(input, i+1, slate + input[i].upper(), result)
+            helper(input, i+1, slate + [input[i].lower()], result)
+            helper(input, i+1, slate + [input[i].upper()], result)
 
 
 print(letterCasePermutations('a1b1'))

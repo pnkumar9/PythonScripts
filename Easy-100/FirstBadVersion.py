@@ -16,6 +16,8 @@ call isBadVersion(4) -> true
 
 Then 4 is the first bad version. 
 '''
+
+'''
 class Solution:
     def firstBadVersion(self, n):
         """
@@ -32,3 +34,4 @@ class Solution:
             else:
                 low = mid+1
         return version        
+'''         
