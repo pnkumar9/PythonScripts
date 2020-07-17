@@ -27,7 +27,7 @@ This is same as letter case permutations problem but with a change
 
 use include , exlude stratgey
 
-left child slate will be as it it is i.e. NO addition
+left child slate will be as it is i.e. NO addition
 right child appends slate
 
 
@@ -50,4 +50,23 @@ def helper(input, i,  slate, result):
         helper(input, i+1, slate+[input[i]], result) # include element for right child
 
 
-print(subsets([1,2,3]))        
+print(subsets([1,2,3]))    
+
+#uplevel
+def generate_all_subsets(s):
+    
+    
+    def helper(s, i, slate, res):
+        
+        #base case
+        if i == len(s):
+            res.append(slate)
+        else:
+            helper(s, i+1, slate, res)
+            helper(s, i+1, slate+s[i], res)
+        
+    
+    #use include exclude tree
+    res = []
+    helper(s, 0, "", res)
+    return res

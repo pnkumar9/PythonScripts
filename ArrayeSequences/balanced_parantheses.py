@@ -25,7 +25,7 @@ def balance_check(s):
     # Set of opening brackets
     opening = set('([{') 
     
-    # Matching Pairs
+    # Matching PairsA
     matches = set([ ('(',')'), ('[',']'), ('{','}') ]) 
     
     # Use a list as a "Stack"

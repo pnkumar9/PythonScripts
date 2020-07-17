@@ -26,9 +26,8 @@ def helper(s, index, slate, result):
   # Recursive case
   for i in range(index,len(s)):
       if i != index and s[i] == s[i-1]: continue
-      slate.append(s[i])
-      helper(s, i+1, slate, result)
-      slate.pop()
+      helper(s, i+1, slate+[s[i]], result)
+
 
 
 

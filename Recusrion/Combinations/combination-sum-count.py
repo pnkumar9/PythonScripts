@@ -19,20 +19,23 @@ A solution set is:
 use include/exclude recursive method
 '''
 def combination_sum(nums, targetSum):
-    return helper(nums, targetSum, 0, 0)
+    return helper(nums, targetSum, 0, 0, False)
 
 
-def helper(input, targetSum,  i, slateSum):
+def helper(input, targetSum,  i, slateSum, sumChanged):
 
-    if slateSum == targetSum:
+    if slateSum == targetSum and sumChanged:
         return 1
-    if (i == len(input)) or (slateSum > targetSum):
+    if (i == len(input)):
         return 0
-        #print(result)
     
-    return ( helper(input, targetSum, i+1, slateSum) + 
-             helper(input, targetSum, i+1, slateSum+input[i]) ) # include element for right child
+    # include exclude method
+    return ( helper(input, targetSum, i+1, slateSum, False) + 
+             helper(input, targetSum, i+1, slateSum+input[i], True) ) 
 
 
 print(combination_sum([1,2,3], 3))   
-print(combination_sum([2,3,4, 6,7], 7))             
+print(combination_sum([2,3,4, 6,7], 7))  
+print(combination_sum([10,20], 0))
+print(combination_sum([-5, -10], -15))           
+ 
