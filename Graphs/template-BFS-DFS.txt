@@ -1,0 +1,52 @@
+Every graph question basically includes following three parts in the solution
+
+1. BUILD THE GRAPH 
+
+    Needs N = Number of vertices
+
+    adjList = 1D array of size N. 
+    edges = A list of edges
+
+    adjList = [] * N
+    for src, dst in edges:
+        adjList[src].append(dst)
+        adjList[dst].append(src)
+
+    visited = 1D array Initialize to -1
+
+2.  BFS(Iterative) or DFS(Recursive) (complexity = O(N+M)) M==> No of edges N==> No of Nodes or vertices
+
+    ***** Basic skeleton of BFS *****
+
+    def bfs(source):
+        q = new queue()
+        q.push(source)
+
+        while q is not empty:
+            node = q.popleft()
+
+            for neighbor in adjList[node]:
+                if visited[neighbor] == -1:
+                    visited[neighbor] = 1
+                    q.append(neighbor)
+
+
+    ***** Basic skeleton of DFS *****
+    def dfs(node):
+        visited[node] = 1  # we call this from outer loop only if visited[node] != -1
+
+        for neighbor in adjList[node]:
+            if visited[neighbor] == -1:
+                dfs(neighbor)
+
+3. OUTER LOOP
+
+    for each vertice in 0..N-1:
+        if visited[vertice] == -1:
+        bfs(v) or dfs(v)
+
+
+
+
+
+
