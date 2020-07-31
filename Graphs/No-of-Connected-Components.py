@@ -51,6 +51,7 @@ from collections import deque
 def bfs(node, adjList, visited):
     q = deque()
     q.append(node)
+    visited[node] = 1
 
     while q:
         vertex = q.popleft()
@@ -62,8 +63,8 @@ def bfs(node, adjList, visited):
 
 
 
-#print(connected_components_bfs(5, [[0, 1], [1, 2], [3, 4]]))
-#print(connected_components_bfs(5, [[0, 1], [1, 2], [2, 3], [3, 4]]))
+print(connected_components_bfs(5, [[0, 1], [1, 2], [3, 4]]))
+print(connected_components_bfs(5, [[0, 1], [1, 2], [2, 3], [3, 4]]))
 
 
 def connected_components_dfs(n, edges):

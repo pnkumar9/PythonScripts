@@ -49,4 +49,5 @@ Every graph question basically includes following three parts in the solution
 
 
 
-
+For all shortest path problems BFS is the only option
+Dectecting cycles BFS and DFS works but use BFS
