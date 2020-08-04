@@ -3,6 +3,7 @@ possible food ball scores []
 Find possible
 
 
+
 '''
 
 # Python program to count number of possible ways to a given 
