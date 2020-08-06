@@ -12,3 +12,18 @@ def is_palindrome(string):
         high -= 1
 
     return True
+
+import re
+def isPalindrome2(s):
+    
+    str1 = ''.join(e.lower() for e in s if e.isalnum())
+    #print(str1)
+
+    return str1 == str1[::-1]
+     
+
+      
+
+
+print(isPalindrome2("A man, a plan, a canal: Panama"))  
+print(isPalindrome2("race a car"))   
