@@ -12,7 +12,8 @@ Output:1
 
 '''
 def minMeetingRooms(intervals):
-    
+    #NOTE: if array is 2D, len(intervals) ==> returns no of rows which is 3 in this example
+    #      if array is 2D len(interval[0]) ==> returns no of columns which is 2
     starts, ends = [0]*len(intervals), [0]*len(intervals)
 
     for i in range(len(intervals)):
