@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 '''
-A very common interview question is to begin by just implementing a Stack! Try your best to implement your own stack!
+A very common interview question is to begin by just implementing a Stack! 
+Try your best to implement your own stack!
 
 It should have the methods:
 
