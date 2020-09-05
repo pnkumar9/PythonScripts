@@ -1,5 +1,8 @@
 Python isalpha() returns true if a string only contains letters. Python isnumeric() returns true if a string contains only numbers. Python isalnum() only returns true if a string contains alphanumeric characters, without symbols.
 
+===================
+Class: User-defined blueprint from which objects are created. 
+It consists of methods or set of instructions that are to be performed on the objects.
 
 =====================
 Return Value from divmod()
@@ -19,3 +22,281 @@ print('divmod(3, 8.0) = ', divmod(3, 8.0))
 print('divmod(7.5, 2.5) = ', divmod(7.5, 2.5))
 print('divmod(2.6, 0.5) = ', divmod(2.6, 0.5))
 =================
+The dir() function returns all properties and methods of the specified object, without the values.
+
+This function will return all the properties and methods, even built-in properties which are default for all object.
+
+class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+print(dir(Person))
+
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
+'__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', 
+'__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', 
+'__subclasshook__', '__weakref__', 'age', 'country', 'name']
+
+name = "John"
+print(dir(name))
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', 
+'__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '
+__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', 
+'__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '
+__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 
+'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 
+'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 
+'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+============================
+https://www.geeksforgeeks.org/self-in-python-class/
+
+=================
+class Cat:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def info(self):
+        print(f"I am a cat. My name is {self.name}. I am {self.age} years old.")
+
+    def make_sound(self):
+        print("Meow")
+class is a blueprint for the objects. This blueprint can be used to create multiple numbers of objects. 
+Let's create two different objects from the above class.
+cat1 = Cat('Andy', 2)
+cat2 = Cat('Phoebe', 3)
+======================
+Using @classmethod to Create Convenience Constructor Methods
+Although creating multiple different constructors isn't a feature of Python, 
+it doesn't mean we can't do something similar. 
+If we want another way to construct a Vehicle object with some preset values, 
+we can create convenience methods using what is known as a class method. 
+A class method is a function attached to the class itself, not an instance of the class, 
+and it has access to any class-level attributes. To create a class method, w
+e need to use what is known as a decorator. 
+Decorators are functions or classes that we use to add additional functionality to a 
+function by prefixing the decorator's name with an at-sign (@) and putting it on the line above our 
+function or method definition. This sounds confusing, but remember back to our look at higher-order functions. 
+A decorator takes a function and returns another modified function in its place. For the purposes of the PCAP, 
+we only need to know how to use one specific decorator so that we can add class methods to our classes: 
+the @classmethod decorator. Let's add a method to our Vehicle class that will allow us to create a bicycle 
+(which has two wheels, and no engine).
+=================
+Using super()
+When we want to customize a method written on a parent class without entirely replacing the method, 
+then we're able to invoke the parent class's implementation of the method by calling the super() function. 
+We need to do this to change the Bicycle.__init__ method. 
+A bicycle has tires, so we want that as another parameter in the initializer. 
+Otherwise, we would like to have the initialization behave the same way as it does for Vehicle. 
+Let's implement __init__.
+
+~/python_objects/bicycle.py
+
+from vehicle import Vehicle
+
+class Bicycle(Vehicle):
+    default_tire = 'tire'
+
+    def __init__(self, tires=[], distance_traveled=0, unit='mile'):
+        super().__init__(distance_traveled, unit)
+        if not tires:
+            tires = [self.default_tire, self.default_tire]
+        self.tires = tires
+================================
+https://docs.python.org/3.7/tutorial/classes.html#inheritance
+=====================
+
+What does if __name__ == “__main__”: do?
+
+
+In simple words everything inside if __name__ == "__main__": is only run when the module is execute directly by python interpreter (ex: python module.py) OR if functions are called explicitly after importing.
+
+EXAMPLE: testFile.py
+
+#this will always be executed even if this module is simply imported by other file or this module is the entry point
+print "I will always run in any situation. Even when this module is 'just' imported"
+
+if __name__ == "__main__":
+    #this will be executed only when this module is the entry point eg. python testFile.py but not if this file is imported
+    print "I will only run if this module (testFile.py) is executed directly by python interpreter"
+app.py
+
+import testFile
+python testFile.py
+
+Output: I will always run in any situation. Even when this module is 'just' imported
+
+I will only run if this module (testFile.py) is executed directly by python interpreter
+
+python app.py
+
+Output: I will always run in any situation. Even when this module is 'just' imported
+===========================
+
+Super()
+
+In Python, super() has two major use cases:
+
+Allows us to avoid using the base class name explicitly
+Working with Multiple Inheritance
+
+Example 1: super() with Single Inheritance
+In the case of single inheritance, it allows us to refer base class by super().
+
+class Mammal(object):
+  def __init__(self, mammalName):
+    print(mammalName, 'is a warm-blooded animal.')
+    
+class Dog(Mammal):
+  def __init__(self):
+    print('Dog has four legs.')
+    super().__init__('Dog')
+    
+d1 = Dog()
+Dog has four legs.
+Dog is a warm-blooded animal.
+
+Here, we called the __init__() method of the Mammal class (from the Dog class) using code
+
+super().__init__('Dog')
+instead of
+
+Mammal.__init__(self, 'Dog')
+Since we do not need to specify the name of the base class when we call its members, we can easily change the base class name (if we need to).
+
+Example 2: super() with Multiple Inheritance
+class Animal:
+  def __init__(self, Animal):
+    print(Animal, 'is an animal.');
+
+class Mammal(Animal):
+  def __init__(self, mammalName):
+    print(mammalName, 'is a warm-blooded animal.')
+    super().__init__(mammalName)
+    
+class NonWingedMammal(Mammal):
+  def __init__(self, NonWingedMammal):
+    print(NonWingedMammal, "can't fly.")
+    super().__init__(NonWingedMammal)
+
+class NonMarineMammal(Mammal):
+  def __init__(self, NonMarineMammal):
+    print(NonMarineMammal, "can't swim.")
+    super().__init__(NonMarineMammal)
+
+class Dog(NonMarineMammal, NonWingedMammal):
+  def __init__(self):
+    print('Dog has 4 legs.');
+    super().__init__('Dog')
+    
+d = Dog()
+print('')
+bat = NonMarineMammal('Bat')
+Run Code
+Output
+
+Dog has 4 legs.
+Dog can't swim.
+Dog can't fly.
+Dog is a warm-blooded animal.
+Dog is an animal.
+
+Bat can't swim.
+Bat is a warm-blooded animal.
+Bat is an animal.
+
+=================
+
+Method Resolution Order (MRO)
+Method Resolution Order (MRO) is the order in which methods should be inherited in the presence of multiple inheritance. You can view the MRO by using the __mro__ attribute.
+
+>>> Dog.__mro__
+(<class 'Dog'>, 
+<class 'NonMarineMammal'>, 
+<class 'NonWingedMammal'>, 
+<class 'Mammal'>, 
+<class 'Animal'>, 
+<class 'object'>)
+Here is how MRO works:
+
+A method in the derived calls is always called before the method of the base class.
+In our example, Dog class is called before NonMarineMammal or NoneWingedMammal. These two classes are called before Mammal, which is called before Animal, and Animal class is called before the object.
+If there are multiple parents like Dog(NonMarineMammal, NonWingedMammal), methods of NonMarineMammal is invoked first because it appears first.
+
+===================
+https://medium.com/edureka/oops-interview-questions-621fc922cdf4
+
+What are the main features of OOPs?
+Inheritance
+Encapsulation
+Polymorphism
+Data Abstraction
+================
+What is a map function in Python?
+The map() function in Python has two parameters, function and iterable. The map() function takes a function as an argument and then applies that function to all the elements of an iterable, passed to it as another argument. It returns an object list of results.
+
+For example:
+
+def calculateSq(n):
+return n*n
+numbers = (2, 3, 4, 5)
+result = map( calculateSq, numbers)
+print(result)
+================
+Explain the use of the 'with' statement and its syntax.
+In Python, using the ‘with’ statement, we can open a file and close it as soon as the block of code, where ‘with’ is used, exits. In this way, we can opt for not using the close() method.
+
+with open("filename", "mode") as file_var:
+
+Python has various file processing modes.
+
+For opening files, there are three modes:
+read-only mode (r)
+write-only mode (w)
+read–write mode (rw)
+For opening a text file using the above modes, we will have to append ‘t’ with them as follows:
+read-only mode (rt)
+write-only mode (wt)
+read–write mode (rwt)
+Similarly, a binary file can be opened by appending ‘b’ with them as follows:
+read-only mode (rb)
+write-only mode (wb)
+read–write mode (rwb)
+To append the content in the files, we can use the append mode (a):
+For text files, the mode would be ‘at’
+For binary files, it would be ‘ab’
+==================
+
+Write a code to display the contents of a file in reverse.
+To display the contents of a file in reverse, the following code can be used:
+
+for line in reversed(list(open(filename.txt))):
+print(line.rstrip())
+===============
+What is self-keyword in Python?
+Self-keyword is used as the first parameter of a function inside a class that represents the instance of the class. The object or the instance of the class is automatically passed to the method that it belongs to and is received in the ‘self-keyword.’ Users can use another name for the first parameter of the function that catches the object of the class, but it is recommended to use ‘self-keyword’ as it is more of a Python convention.
+===============
+
+What is the output of the following?
+x = [‘ab’, ‘cd’]
+print(len(list(map(list, x))))
+Output:
+
+[[‘a’, ‘b’], [‘c’, ‘d’]].
+Explanation: Each element of x is converted into a list.
+======================
+Write a Python program to count the total number of lines in a text file.
+def file_count(fname):
+with open(fname) as f:
+for i, 1 in enumerate(f):
+paas
+return i+1
+print(“Total number of lines in the text file: ”, file_count(“file.txt”))
+==================
+Decorators are very powerful and useful tool in Python since it allows programmers to 
+modify the behavior of function or class. Decorators allow us to wrap another function 
+in order to extend the behavior of wrapped function, without permanently modifying it.
+
+==============

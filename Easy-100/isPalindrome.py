@@ -16,12 +16,25 @@ def is_palindrome(string):
 import re
 def isPalindrome2(s):
     
-    str1 = ''.join(e.lower() for e in s if e.isalnum())
+    cleaned_s = "".join(c for c in s if c.isalnum()).lower()
     #print(str1)
 
-    return str1 == str1[::-1]
+    return cleaned_s == cleaned_s[::-1]
      
-
+def isPalindrome3(self, s):
+    l, r = 0, len(s) - 1
+    while l < r:
+        if not s[l].isalnum():
+            l += 1
+        elif not s[r].isalnum():
+            r -= 1
+        else:
+            if s[l].lower() != s[r].lower():
+                return False
+            else:
+                l += 1
+                r -= 1
+    return True
       
 
 
