@@ -300,3 +300,31 @@ modify the behavior of function or class. Decorators allow us to wrap another fu
 in order to extend the behavior of wrapped function, without permanently modifying it.
 
 ==============
+Python — List Sorting, Keys & Lambdas :
+https://medium.com/@johngrant/python-list-sorting-keys-lambdas-1903b2a4c949
+
+Built-in List Sorting
+After a quick search I came across the Sorting Mini-How To guide which has some good info. Turns out Python lists have two built-in ways to sort data:
+sort() — A method that modifies the list in-place
+sorted() — A built-in function that builds a new sorted list from an iterable
+==========
+
+Python split function
+
+txt = "apple#banana#cherry#orange"
+
+x = txt.split("#")
+
+print(x)
+['apple', 'banana', 'cherry', 'orange']
+
+
+txt = "apple#banana#cherry#orange"
+
+# setting the maxsplit parameter to 1, will return a list with 2 elements!
+x = txt.split("#", 1)
+
+print(x)
+['apple', 'banana#cherry#orange']
+
+===========
