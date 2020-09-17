@@ -22,25 +22,25 @@ def pair_sum(arr,k):
     
     # For every number in array
     for num in arr:
-        print (f" num is {num}")
+        #print (f" num is {num}")
         
         # Set target difference
         target = k-num
-        print (f" target is {target}")
+        #print (f" target is {target}")
         
         # Add it to set if target hasn't been seenmap
         if target not in seen:
             seen.add(num)
-            print(f"not seen {target} in seen set so adding {num}")
+            #print(f"not seen {target} in seen set so adding {num}")
         
         else:
             # Add a tuple with the corresponding pair
             output.add( (min(num,target),  max(num,target)) )
-            print (f" output set is {output}")
+            #print (f" output set is {output}")
     
     
     # FOR TESTING
-    return len(output)
+    return output
     # Nice one-liner for printing output
     #return '\n'.join(map(str,list(output)))
 
@@ -62,9 +62,18 @@ def twoNumberSum(array, targetSum):
 			nums[num] = True
 			
 	return []
+# return indices instead of pairs
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    h = {}
+    for i, num in enumerate(nums):
+        if (target - num) in h:
+            return [i, h[target - num]]
+        h[num] = i
+        
+    return [ ]   
 
-
-
-#pair_sum([1,2,3,1],3)    
-pair_sum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1],10)
-pair_sum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1,3,7],10)
+#print(pair_sum([1,2,3,1],3))
+print(pair_sum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1],10))
+print(pair_sum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1,3,7],10))
+print(twoNumberSum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1],10))
+print(twoNumberSum([1,9,2,8,3,7,4,6,5,5,13,14,11,13,-1,3,7],10))
