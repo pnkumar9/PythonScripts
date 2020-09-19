@@ -1,3 +1,11 @@
+MUST See http://xahlee.info/python/python_basics.html
+====================
+b="01234567"
+
+print b[1:4]  # 123
+print b[1:-1] # 123456
+print b[-2:-1] # 6
+======================
 Python isalpha() returns true if a string only contains letters. Python isnumeric() returns true if a string contains only numbers. Python isalnum() only returns true if a string contains alphanumeric characters, without symbols.
 
 ===================

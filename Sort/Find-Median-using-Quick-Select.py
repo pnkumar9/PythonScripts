@@ -20,7 +20,8 @@ def nlogn_median(l):
 #Finding the median in average O(n)        
 
 '''
-Pick an index in the list. It doesn’t matter how you pick it, but choosing one at random works well in practice. The element at this index is called the pivot.
+Pick an index in the list. It doesn’t matter how you pick it, but choosing one at random works well in practice. 
+The element at this index is called the pivot.
 Split the list into 2 groups:
 Elements less than or equal to the pivot, lesser_els
 Elements strictly greater than the pivot, great_els

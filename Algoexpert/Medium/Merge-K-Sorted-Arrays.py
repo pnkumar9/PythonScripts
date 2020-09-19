@@ -1,6 +1,8 @@
 #!/usr/bin/env python3.6
 '''
-Heap queue is a special tree structure in which each parent node is less than or equal to its child node. In python it is implemented using the heapq module. It is very useful is implementing priority queues where the queue item with higher weight is given more priority in processing.
+Heap queue is a special tree structure in which each parent node is less than or equal to its child node. 
+In python it is implemented using the heapq module. 
+It is very useful is implementing priority queues where the queue item with higher weight is given more priority in processing.
 
 Create a Heap
 A heap queue is created by using python’s inbuilt library named heapq. This library has the relevant functions to carry out various operations on a heap data structure. Below is a list of these functions.
