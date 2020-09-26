@@ -2,7 +2,7 @@
 
 # This algo uses min heap
 
-# 1. Buid miniheap for the K numbers
+# 1. Buid min heap for the K numbers
 # 2. keep adding rest of the elements only if the element is > root (min heap root is always minimum value)
 # 3. Kth largest element is heap[0]
 
@@ -22,4 +22,4 @@ class Solution:
 
 
 #  1,2,9,12,23,30,50
-print(Solution().findKthLargest([1, 23, 12, 9, 30, 2, 50], 4))        
+print(Solution().findKthLargest([1, 23,  12, 9, 9, 12, 30, 2, 50], 4))        

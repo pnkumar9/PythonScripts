@@ -10,7 +10,10 @@ Base 62 encodes to [a-zA-Z0-9] which works well for urls, eliminating the need f
 There is only one hash result for the original input and Base 62 is deterministic (no randomness involved)
 Base 64 is another popular encoding but provides issues for urls because of the additional + and / characters
 The following Base 62 pseudocode runs in O(k) time where k is the number of digits = 7:
+tinyurl-diff-methods.png
+tinyurl-diff-methods-2.png
 '''
+
 def base_encode(num, base=62):
     digits = []
     while num > 0
