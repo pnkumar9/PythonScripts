@@ -1,15 +1,14 @@
 
 
-from operator import contains
-import pip._vendor.requests
 import json
+#import requests
 
 def callcurl(url):
     if 'A123456789' in url:
         ret_json = {
                     "name": "Flynn Mackie",
                     "title": "Senior VP of Engineering",
-                    "reports": ["A123456793", "A1234567898"]  }
+                    "reports": ["A123456793", "A1234565898"]  }
         return json.dumps(ret_json)
 
     if 'A123456793' in url:
@@ -20,7 +19,7 @@ def callcurl(url):
                     }
         return json.dumps(ret_json)
 
-    if 'A1234567898' in url:
+    if 'A1234565898' in url:
         ret_json = {
                     "name": "Machinegun Kelly",
                     "title": "VP of Banking",
@@ -32,22 +31,22 @@ def callcurl(url):
         ret_json = {
                     "name": "Randall Cosmo",
                     "title": "Director of Design",
-                    "reports": ["B123456693"]
+                    "reports": []
                     }
         return json.dumps(ret_json)   
 
-    if 'A123456693' in url:
+    if 'A1234566898' in url:
         ret_json = {
-                    "name": "Randall Cosmo",
-                    "title": "Director of Design",
-                    "reports": ["B123456693"]
+                    "name": "Kumar Cosmo",
+                    "title": "Director of Devops",
+                    "reports": []
                     }
-        return json.dumps(ret_json)  
-
+        return json.dumps(ret_json)   
 
     ret_json ={
                 "name": "Jamie Ross",
-                "title": "GIMP"
+                "title": "GIMP",
+                "reports": []
                 }
     return json.dumps(ret_json)                          
 
@@ -56,24 +55,35 @@ def print_employee_hierarchy(id, tab_size=0):
     # parse the info to get: name, title, reports
     # for every id in reports -> recurse print_emp_hierarchy(id)
 
-    #resp = pip._vendor.requests.get("http://www.companyname.corp/api/employee/" + id)
-    resp = callcurl("http://www.companyname.corp/api/employee/" + id)
-    resp_json = resp.json()
+    #resp = requests.get("http://www.companyname.corp/api/employee/" + id)
+    resp = callcurl("http://www.companyname.corp/api/employee/" + str(id))
+    #print(resp)
+    #resp_json = resp.json()
+
+    resp_json = json.loads(resp)
     # resp_json.get("name")
     name = resp_json["name"]
     title = resp_json["title"]
     reports = resp_json["reports"]
 
-    for _ in range(tab_size):
-        print ("\t")
-    print (name, title)
+    #name = resp["name"]
+    #title = resp["title"]
+    #reports = resp["reports"]  
+    # 
 
-    if not reports: 
-        return
+ 
+    if tab_size == 0:
+        print(name+' - '+title)
+    else:
+        print(' ' * 2 * tab_size+name+' - '+title)
+
+    if len(reports) == 0: 
+        return   
+
 
     tab_size += 1
 
     for id in reports:
-        print_employee_hierarchy(tab_size, id)
+        print_employee_hierarchy(id, tab_size)
 
 print_employee_hierarchy('A123456789', 0)      
