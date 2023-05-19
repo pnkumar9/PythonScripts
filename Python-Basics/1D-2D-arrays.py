@@ -1,3 +1,11 @@
+#interview question
+L = [1,2,3,4,5,6]
+
+L[0] = L[5] = 0
+
+print(L)
+
+
 # First method to create a 1 D array 
 N = 5
 arr = [0]*N 

@@ -64,6 +64,7 @@ print (arr)
 
 '''
 open file and print lines
-'''
 for line in open('script.py'):
   print ('line')
+'''
+
